@@ -209,3 +209,33 @@ function longestWordLength(str) {
   }
   return longestLength;
 }
+// ex-6.1
+function accum(str) {
+  let j = 1;
+  let arr = "";
+  for (let i of str) {
+    arr += i.repeat(j);
+    j++;
+  }
+  return arr;
+}
+//ex-6.2
+
+function countDuplicates(str) {
+  str = str.toLowerCase();
+  let charCount = {};
+  for (let char of str) {
+    if (/^[a-z0-9]$/.test(char)) {
+      charCount[char] = (charCount[char] || 0) + 1;
+    }
+  }
+  let duplicatesCount = 0;
+  for (let char in charCount) {
+    if (charCount[char] > 1) {
+      duplicatesCount++;
+    }
+  }
+
+  return duplicatesCount;
+}
+console.log(countDuplicates("aabBcde"));
