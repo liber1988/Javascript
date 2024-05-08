@@ -5,12 +5,13 @@ function ex1(n) {
   return n + ex1(n - 1);
 }
 
-function ex2(str) {
-  if (str.length <= 1) {
-    return str;
+function ex2(str, reversestr) {
+  if (str.length >= 1) {
+    reversestr += str.slice(-1);
+    return reverseString(str.slice(0, -1), reversestr);
+  } else {
+    return reversestr;
   }
-
-  return str.slice(-1) + ex2(str.slice(0, -1));
 }
 
 function ex3(n) {
