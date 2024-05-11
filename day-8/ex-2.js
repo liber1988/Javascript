@@ -1,42 +1,5 @@
-// // 5
-// const heroInfo = {
-//   name: "Legolas",
-//   equipment: {
-//     first: "Bow of the Galadhrim",
-//     second: "Elven dagger",
-//     third: "Cloak of Lothlórien",
-//   },
-// };
 
-// // 6
-
-// // 7
-// const heroStats = {
-//   name: "Legolas",
-//   level: 20,
-//   skills: ["Archery", "Sneaking", "Hand-to-hand combat"],
-// };
-
-// // 8
-// const questLog = [
-//   ["Defeat the dragon", "Rescue the princess"],
-//   ["Rescue the princess", "Explore the ancient ruins"],
-//   ["Explore the ancient ruins", "Discover the hidden treasure"],
-// ];
-
-// // 9
-// const adventurers = [
-//   { name: "Bilbo", favorites: ["Find the ring", "Join the dwarves"] },
-//   { name: "Frodo", favorites: ["Destroy the ring", "Visit Rivendell"] },
-//   { name: "Aragorn", favorites: ["Protect the hobbits", "Serve the king"] },
-// ];
-
-// // 10
-// const quests = [
-//   { name: "Defeat the dragon", difficulty: 8 },
-//   { name: "Rescue the princess", difficulty: 5 },
-// ];
-
+// exersice 1
 function ex1() {
   const hero = {
     name: "Aragorn",
@@ -44,22 +7,18 @@ function ex1() {
     class: "Ranger",
     race: "Human",
   };
-
-  // Destructuring assignment to extract name, level, and class
   const { name, level, class: heroClass } = hero;
-
-  // Logging the extracted values
   console.log(`Hero Name: ${name}`);
   console.log(`Hero Level: ${level}`);
   console.log(`Hero Class: ${heroClass}`);
 }
-
+// exersice 2
 function ex2() {
   let topHeroNames = ["Gandalf", "Legolas", "Frodo", "Samwise"];
   let [first, second, ...remaningHeroNames] = topHeroNames;
   return [second, first, ...remaningHeroNames];
 }
-
+// exersice 3
 function ex3() {
   const heroLevels = {
     Aragorn: 20,
@@ -71,7 +30,7 @@ function ex3() {
   };
   return { ...heroLevels, ...levelUpdates };
 }
-
+// exersice 4
 function ex4() {
   const questList1 = ["Find the ring", "Save the king", "Protect the realm"];
   const questList2 = [
@@ -81,7 +40,7 @@ function ex4() {
   ];
   return [...new Set([...questList1, ...questList2])];
 }
-
+// exersice 5
 function ex5() {
   const heroInfo = {
     name: "Legolas",
@@ -94,7 +53,7 @@ function ex5() {
   let { first, second } = [...heroInfo.equipment];
   return [first, second];
 }
-
+// exersice 6
 function ex6() {
   const baseDetails = {
     name: "Gandalf",
@@ -107,10 +66,9 @@ function ex6() {
   };
   return { ...baseDetails, ...extraDetails };
 }
-
-function ex7() {
+// exersice 7
+function ex7(heroDetails) {
   const uniqueSkills = new Set([...hero.skills, ...newSkills]);
-
   hero.skills = Array.from(uniqueSkills);
   return hero;
 }

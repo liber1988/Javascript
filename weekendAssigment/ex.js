@@ -1,6 +1,5 @@
 // ex-1.1
 function yesOrNo(value) {
-  // CR - should return, not console.log
   if (value) {
     console.log("yes");
   } else {
@@ -34,7 +33,6 @@ function findNextSquare(number) {
 }
 
 //ex-2.4
-// CR - The logic is slightly complex and could be simplified.
 function findUniq(array) {
   if (array[0] != array[1]) {
     if (array[0] == array[2]) {
@@ -49,28 +47,6 @@ function findUniq(array) {
     }
   }
 }
-
-// CR - here's a simplified version
-function findUnique(array) {
-  const frequency = {};
-
-  // Count each number's frequency
-  array.forEach(num => {
-    if (frequency[num] > 0) {
-        frequency[num]++;
-      } else {
-        frequency[num]= 1;
-      }    
-  });
-
-  // Find the number that appears only once
-  for (let num in frequency) {
-    if (frequency[num] === 1) {
-      return Number(num);
-    }
-  }
-}
-
 // ex-2.5
 function summation(n) {
   let sum = 0;
@@ -82,7 +58,6 @@ function summation(n) {
 
 // ex-2.6
 function centureFromYear(year) {
-  // CR - Incorrectly calculates the century, it should use Math.ceil instead of Math.round.
   return Math.round(year / 100);
 }
 // ex-2.7
@@ -101,25 +76,8 @@ function basic(operation, value1, value2) {
     case "/":
       result = value1 / value2;
       break;
-     // CR - add a default case in switch
   }
   return result;
-}
-
-// CR - the right way to write a switch case with a return value is like this. Return each case:
-function basic(operation, value1, value2) {
-	switch (operation) {
-		case '+':
-			return value1 + value2;
-		case '-':
-			return value1 - value2;
-		case '*':
-			return value1 * value2;
-		case '/':
-			return value1 / value2;
-		default:
-			return undefined
-	}
 }
 
 //ex-3.1
@@ -194,13 +152,11 @@ function repeatStr(num, str) {
 function toCamelCase(str) {
   let newStr = "";
   if (str.includes("-")) {
-    // CR - don't use var
     var arr = str.split("-");
   } else {
     var arr = str.split("_");
   }
   for (i = 0; i < arr.length; i++) {
-    // CR - the first word should remain in original case
     newStr += arr[i].charAt(0).toUpperCase() + arr[i].slice(1);
   }
   return newStr;
@@ -269,15 +225,7 @@ function countDuplicates(str) {
   str = str.toLowerCase();
   let charCount = {};
   for (let char of str) {
-    if (/^[a-z0-9]$/.test(char)) {
-      charCount[char] = (charCount[char] || 0) + 1;
-    }
-  }
-  let duplicatesCount = 0;
-  for (let char in charCount) {
-    if (charCount[char] > 1) {
-      duplicatesCount++;
-    }
+
   }
 
   return duplicatesCount;
