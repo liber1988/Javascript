@@ -812,24 +812,41 @@ class CustomerManager {
   // Search for a customer by their name or ID.
   // @param {string} idOrName - ID or name of the customer
   // @return {object} - customer object if found, otherwise null
-  searchCustomer(idOrName) {}
+  searchCustomer(idOrName) {
+    let index = this.customers.findIndex(
+      (customer) => customer.id === idOrName || customer.name === idOrName
+    );
+    return this.customers[index];
+  }
 
   // Retrieve all customers' names.
   // @return {string[]} - Array of customer names
-  getAllCustomers() {}
+  getAllCustomers() {
+    return this.customers.map((customer) => customer.name);
+  }
 
   // Change the cash of a customer.
   // @param {string} customerId - The ID of the customer
   // @param {number} cash - The new cash value
   // @return {boolean} - true if updated successfully, false otherwise
-  changeCustomerCash(customerId, cash) {}
+  changeCustomerCash(customerId, cash) {
+    let customer = this.searchCustomer(customerId);
+    if (customer) {
+      customer.cash = cash;
+      return true;
+    } else {
+      return false;
+    }
+  }
 
   // Calculate the total value of all cars owned by a specific customer.
   // @param {string} customerId - The ID of the customer
   // @return {number} - The total value of cars owned by the customer
   getCustomerTotalCarValue(customerId) {}
 }
-
+const search = new CustomerManager(customers);
+console.log(search.changeCustomerCash("BGzHhjnE8", 5000000));
+console.log(search.customers[0].cash);
 class CarManager {
   constructor(agencies) {
     this.agencies = agencies;
