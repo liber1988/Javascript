@@ -25,7 +25,7 @@
         justify-content: center;
         width: 1920px;
         height: 100vh;
-        background-image: url("images/background.png"); /* Assuming your background image is named 'background.png' in the 'images' folder */
+        background-image: url("images/background.png");
         background-size: cover;
         background-repeat: no-repeat;
       }
@@ -101,7 +101,7 @@
       function updateCarousel() {
         characters.forEach((character, index) => {
           const pos = positions[index];
-          // Correct scaling logic
+
           character.style.transform = `translateX(${(pos - 1) * 180}px) scale(${
             pos === 1 ? 1.2 : 1
           })`;
